@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivangi Garg // Research Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08080f;
+      --panel: #0f0f1b;
+      --panel-soft: #131322;
+      --text: #f3efe8;
+      --muted: #8f8aa3;
+      --teal: #23c7b7;
+      --lav: #8f7bff;
+      --coral: #ff6b4a;
+      --line: rgba(143, 123, 255, 0.28);
+      --line-teal: rgba(35, 199, 183, 0.35);
+      --shadow: 0 0 40px rgba(143, 123, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(143, 123, 255, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(35, 199, 183, 0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 38px 0 60px;
+      position: relative;
+    }
+
+    .corner {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border-color: var(--teal);
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .corner.tl {
+      top: 22px;
+      left: 22px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .corner.tr {
+      top: 22px;
+      right: 22px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .corner.bl {
+      bottom: 22px;
+      left: 22px;
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .corner.br {
+      bottom: 22px;
+      right: 22px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
+    header {
+      border: 1px solid var(--line-teal);
+      background: rgba(15, 15, 27, 0.72);
+      backdrop-filter: blur(14px);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), var(--lav), transparent);
+      opacity: 0.8;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 34px 0 8px;
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: 0.13em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .contact-line {
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.2em;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 6px 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(143, 123, 255, 0.055);
+    }
+
+    .tag.teal {
+      border-color: rgba(35, 199, 183, 0.45);
+      color: var(--teal);
+    }
+
+    .tag.coral {
+      border-color: rgba(255, 107, 74, 0.45);
+      color: var(--coral);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 36px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(143, 123, 255, 0.18);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 8, 15, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    nav a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid rgba(143, 123, 255, 0.16);
+      padding: 7px 10px;
+      transition: 0.18s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: var(--lav);
+      background: rgba(143, 123, 255, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    .section-label {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--teal);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(35, 199, 183, 0.45), transparent);
+    }
+
+    .card {
+      border: 1px solid rgba(143, 123, 255, 0.22);
+      background: rgba(15, 15, 27, 0.82);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      margin: 0;
+      color: #d8d3ce;
+    }
+
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .node-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .node {
+      border: 1px solid rgba(143, 123, 255, 0.28);
+      background: rgba(143, 123, 255, 0.06);
+      padding: 7px 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: #c8c0ff;
+    }
+
+    .node:nth-child(3n) {
+      border-color: rgba(35, 199, 183, 0.28);
+      color: #8be8dd;
+    }
+
+    .project-list,
+    .pub-list,
+    .archive-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      border-left: 2px solid var(--lav);
+      background: rgba(255, 255, 255, 0.025);
+      padding: 13px 14px;
+    }
+
+    .item.coral {
+      border-left-color: var(--coral);
+    }
+
+    .item.teal {
+      border-left-color: var(--teal);
+    }
+
+    .item-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .item-meta {
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .art {
+      min-height: 170px;
+      border: 1px solid rgba(35, 199, 183, 0.28);
+      background:
+        linear-gradient(135deg, rgba(143, 123, 255, 0.18), rgba(35, 199, 183, 0.08)),
+        radial-gradient(circle at 60% 35%, rgba(255, 107, 74, 0.28), transparent 36%),
+        #11111f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .art::after {
+      content: "[ insert artwork ]";
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+
+    .hot-take {
+      border-left: 3px solid var(--coral);
+      background: rgba(255, 107, 74, 0.055);
+      padding: 18px 22px;
+      color: #f3d8d1;
+      font-style: italic;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-card a,
+    .contact-card span {
+      border: 1px solid rgba(143, 123, 255, 0.28);
+      padding: 8px 11px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: #d7d1ff;
+    }
+
+    footer {
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-align: center;
+      border-top: 1px solid rgba(143, 123, 255, 0.16);
+      padding-top: 22px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        padding: 24px;
+      }
+
+      .page {
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .meta-row {
+        flex-direction: column;
+      }
+
+      .name {
+        letter-spacing: 0.08em;
+      }
+
+      nav {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <main class="page">
+    <header id="top">
+      <div class="meta-row">
+        <span>PROFILE_INIT // CMC_RESEARCHER // VISUAL_ARTIST</span>
+        <span>LUDDY_SCHOOL // IUB // 2026</span>
+      </div>
+
+      <h1 class="name">Shivangi Garg</h1>
+      <div class="contact-line">she/her · gargshiv@iu.edu · Bloomington, IN</div>
+
+      <div class="tag-row">
+        <span class="tag teal">PhD Researcher</span>
+        <span class="tag">CMC Fellow</span>
+        <span class="tag coral">Visual Artist</span>
+        <span class="tag teal">Pop Culture Research</span>
+        <span class="tag">AI & Identity</span>
+        <span class="tag coral">Global South</span>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research Nodes</a>
+      <a href="#projects">Currently Building</a>
+      <a href="#publications">Publications</a>
+      <a href="#writing">Writing</a>
+      <a href="#archive">Thinking Archive</a>
+      <a href="#art">Artwork</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="grid">
+      <div>
+        <section id="about">
+          <div class="section-label">About</div>
+          <div class="card">
+            <p>
+              First-year PhD student at the Luddy School studying Computer-Mediated Communication.
+              I think about AI, identity, social perception, pop culture, and the strange ways people
+              perform themselves online. Currently building a research practice somewhere between
+              platform studies, internet culture, visual art, and existential crisis.
+            </p>
+          </div>
+        </section>
+
+        <section id="research">
+          <div class="section-label">Research_Nodes</div>
+          <div class="card node-grid">
+            <span class="node">dating apps</span>
+            <span class="node">identity</span>
+            <span class="node">self-presentation</span>
+            <span class="node">social perception</span>
+            <span class="node">AI consciousness</span>
+            <span class="node">platform studies</span>
+            <span class="node">pop culture</span>
+            <span class="node">Global South</span>
+            <span class="node">CMC</span>
+            <span class="node">digital intimacy</span>
+          </div>
+        </section>
+
+        <section id="projects">
+          <div class="section-label">Currently_Building</div>
+          <div class="card project-list">
+            <div class="item teal">
+              <div class="item-title">Grant Proposal</div>
+              <div class="item-meta">funding // research design // argument building</div>
+            </div>
+
+            <div class="item">
+              <div class="item-title">Paper Submission / Revision</div>
+              <div class="item-meta">AI identity // platform discourse // CMC</div>
+            </div>
+
+            <div class="item coral">
+              <div class="item-title">CogSci Reading List with Prof. Todd</div>
+              <div class="item-meta">reading course // conceptual mapping // theory archive</div>
+            </div>
+
+            <div class="item">
+              <div class="item-title">Personal Website / Research Archive</div>
+              <div class="item-meta">digital garden // art archive // writing lab</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="publications">
+          <div class="section-label">Publications</div>
+          <div class="card pub-list">
+            <div class="item teal">
+              <div class="item-title">[Working Paper] AI Consciousness Discourse on Social Platforms</div>
+              <div class="item-meta">computer-mediated communication · AI identity · platform studies</div>
+            </div>
+
+            <div class="item">
+              <div class="item-title">[Under Review] Add paper title here</div>
+              <div class="item-meta">journal / conference · coauthors · year</div>
+            </div>
+
+            <div class="item coral">
+              <div class="item-title">[Conference / Poster] Add presentation title here</div>
+              <div class="item-meta">conference name · location · year</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="writing">
+          <div class="section-label">Writing_Archive</div>
+          <div class="card archive-list">
+            <div class="item">
+              <div class="item-title">Pop Culture Field Notes</div>
+              <div class="item-meta">essays // critique // internet behavior // aesthetics</div>
+            </div>
+
+            <div class="item teal">
+              <div class="item-title">Random Intellectual Fragments</div>
+              <div class="item-meta">25-minute writing experiments // no AI // unfinished thoughts allowed</div>
+            </div>
+
+            <div class="item coral">
+              <div class="item-title">Hot Takes I May or May Not Stand By Later</div>
+              <div class="item-meta">gender performance // AI intimacy // platform weirdness</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section id="archive">
+          <div class="section-label">Thinking_Archive</div>
+          <div class="card archive-list">
+            <div class="item">
+              <div class="item-title">10 Ideas Log</div>
+              <div class="item-meta">daily conceptual sparks // strange observations // future essays</div>
+            </div>
+
+            <div class="item teal">
+              <div class="item-title">Questions</div>
+              <div class="item-meta">what am I actually trying to understand?</div>
+            </div>
+
+            <div class="item coral">
+              <div class="item-title">Literature Maps</div>
+              <div class="item-meta">who talks to whom // which concepts connect // what gaps remain</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="art">
+          <div class="section-label">Artwork_Archive</div>
+          <div class="card">
+            <div class="art-grid">
+              <div class="art"></div>
+              <div class="art"></div>
+              <div class="art"></div>
+              <div class="art"></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Hot_Take</div>
+          <div class="hot-take">
+            “Instagram makes everyone perform gender. AI makes everyone perform humanity.
+            I study both — and sometimes I genuinely cannot tell which existential crisis is bigger.”
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="section-label">Contact</div>
+          <div class="card contact-card">
+            <a href="mailto:gargshiv@iu.edu">gargshiv@iu.edu</a>
+            <span>CV // coming soon</span>
+            <span>GitHub // coming soon</span>
+            <span>Instagram / Art // coming soon</span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      PHD_INFO_SCI // 2025→2030 // WEBSITE_INIT
+    </footer>
+  </main>
+</body>
+</html>
