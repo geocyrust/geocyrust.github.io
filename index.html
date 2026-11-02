@@ -1,585 +1,619 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivangi Garg // Research Archive</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #08080f;
-      --panel: #0f0f1b;
-      --panel-soft: #131322;
-      --text: #f3efe8;
-      --muted: #8f8aa3;
-      --teal: #23c7b7;
-      --lav: #8f7bff;
-      --coral: #ff6b4a;
-      --line: rgba(143, 123, 255, 0.28);
-      --line-teal: rgba(35, 199, 183, 0.35);
-      --shadow: 0 0 40px rgba(143, 123, 255, 0.08);
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shivangi Garg</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Shivangi Garg: PhD researcher in Information Science (computer-mediated communication) at Indiana University, digital artist, and former UX researcher.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: "The Dressing Room". One page that re-orders itself for whoever is watching (everyone / academic / curator / recruiter).
+   Black-and-white base; one loud accent (sindoor) and one rare highlight (haldi, fills only, never text).
+   Mithila kachni (line + hatching) shows up in borders, dividers and image slots. */
+:root{
+  --bg:#FFFFFF; --fg:#0B0B0B; --surface:#F3F3F1; --surface-2:#E9E9E6; --line:#D4D4D0; --muted:#5C5C58;
+  --accent:#FF3355; --accent-ink:#D4173A; --accent-2:#FFC233; --on-accent:#0B0B0B;
+  --display:"Bricolage Grotesque", "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  --body:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0B0B; --fg:#F5F5F2; --surface:#151515; --surface-2:#1E1E1E; --line:#34342F; --muted:#A3A39D;
+  --accent:#FF4D6A; --accent-ink:#FF6B84; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0B0B; --fg:#F5F5F2; --surface:#151515; --surface-2:#1E1E1E; --line:#34342F; --muted:#A3A39D;
+  --accent:#FF4D6A; --accent-ink:#FF6B84; color-scheme:dark}
+:root{
+  --hatch:repeating-linear-gradient(135deg, var(--accent) 0 1.5px, transparent 1.5px 7px);
+  --hatch-fg:repeating-linear-gradient(45deg, var(--fg) 0 1.2px, transparent 1.2px 7px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.08rem;line-height:1.6;font-optical-sizing:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.gut{padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.wrap{max-width:1180px;margin:0 auto}
+a{color:var(--fg);text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{margin:0;text-wrap:balance;font-family:var(--display)}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
 
-    * {
-      box-sizing: border-box;
-    }
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.mark span{color:var(--accent)}
+.top nav{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--muted);text-decoration:none;white-space:nowrap;padding:4px 0}
+.top nav a:hover{color:var(--fg)}
+.viewing{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--bg);background:var(--fg);padding:5px 11px;border-radius:999px;white-space:nowrap;border:0;cursor:pointer}
+.viewing:hover{background:var(--accent);color:var(--on-accent)}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* hero */
+.hero{padding-block:clamp(36px,7vw,84px) clamp(32px,5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:clamp(24px,5vw,64px);align-items:start}
+.hero h1{font-weight:800;font-size:clamp(3.4rem,12.5vw,9.6rem);line-height:.84;letter-spacing:-.045em;font-variation-settings:"opsz" 96}
+.hero h1 .l2{display:block;padding-left:clamp(0px,6vw,90px)}
+.tagline{font-size:clamp(1.35rem,3.2vw,2.15rem);line-height:1.18;margin-top:clamp(20px,3vw,32px);font-weight:500;letter-spacing:-.015em;max-width:22ch}
+.tagline .it{color:var(--accent);font-size:1.12em}
+.pitch{margin-top:18px;max-width:52ch;color:var(--muted);font-size:1.1rem;min-height:3.2em;transition:opacity .25s}
+.pitch.swap{opacity:0}
+.dress{margin-top:30px;display:grid;gap:12px}
+.dress .q strong{font-family:var(--display);font-size:1.1rem;font-weight:700}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--fg);background:transparent;border:1.5px solid var(--fg);border-radius:999px;padding:9px 18px;cursor:pointer;transition:background .15s,color .15s,transform .15s}
+.chip:hover{transform:translateY(-1px);background:var(--surface)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+.dress .why{font-size:.95rem;color:var(--muted);max-width:60ch}
+.dress .why .it{color:var(--fg);font-size:1.08em}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border:1.5px solid var(--fg);color:var(--fg);transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.btn.solid{background:var(--fg);color:var(--bg)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(143, 123, 255, 0.16), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(35, 199, 183, 0.12), transparent 28%),
-        var(--bg);
-      color: var(--text);
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      line-height: 1.6;
-    }
+.portrait{margin-top:8px}
+.pframe{position:relative}
+.frame2{border:1.5px solid var(--fg);outline:1.5px solid var(--fg);outline-offset:6px;margin:6px;aspect-ratio:4/5;max-width:100%;background:var(--hatch-fg), var(--surface);display:grid;place-items:center;text-align:center;padding:16px}
+.frame2 span{background:var(--bg);padding:6px 10px}
+.frame2.has-photo{padding:0;overflow:hidden}
+.frame2.square{aspect-ratio:1/1}
+.portrait-cap{margin:34px 0 0;font-size:.62rem;letter-spacing:.08em;max-width:60%}
+.frame2 img{width:100%;height:100%;object-fit:cover;display:block}
+.sticker{position:absolute;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;padding:8px 11px;color:var(--on-accent);border:1.5px solid var(--fg);box-shadow:3px 3px 0 var(--fg);max-width:170px}
+.s1{background:var(--accent-2);top:-12px;right:-10px;transform:rotate(4deg)}
+.s2{background:var(--bg);color:var(--fg);bottom:14%;left:-14px;transform:rotate(-5deg)}
+.s3{background:var(--accent);bottom:-14px;right:-8px;transform:rotate(2deg)}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+.kachni{height:14px;border-block:1.5px solid var(--fg);background:var(--hatch-fg)}
 
-    .page {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 38px 0 60px;
-      position: relative;
-    }
+/* sections */
+#stage{display:flex;flex-direction:column}
+.sec{padding-block:clamp(48px,7vw,88px);border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;margin-bottom:clamp(24px,4vw,40px)}
+.sec-head h2{font-size:clamp(2.1rem,5.6vw,3.9rem);font-weight:800;letter-spacing:-.035em;line-height:.95}
+.sec-head h2 .it{color:var(--accent);font-size:1.05em}
+.sec-head .mono{text-align:right}
+.lede{font-size:1.18rem;max-width:62ch;margin-bottom:28px}
 
-    .corner {
-      position: fixed;
-      width: 34px;
-      height: 34px;
-      border-color: var(--teal);
-      opacity: 0.75;
-      pointer-events: none;
-      z-index: 20;
-    }
+#hottake{background:var(--accent);color:var(--on-accent);border-bottom:0;position:relative}
+#hottake .wrap{display:grid;gap:22px}
+#hottake .mono{color:var(--on-accent)}
+.take{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.8vw,3.6rem);line-height:1.02;letter-spacing:-.03em;max-width:24ch;min-height:3.1em;transition:opacity .2s}
+.take.swap{opacity:0}
+.take em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:0}
+.take-bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.take-btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;background:#0B0B0B;color:#F5F5F2;border:0;padding:12px 18px;cursor:pointer}
+.take-btn:hover{background:#2A2A2A}
+.draft{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1.5px dashed var(--on-accent);padding:3px 8px}
+.hatch-edge{position:absolute;left:0;right:0;height:12px;background:repeating-linear-gradient(135deg, #0B0B0B 0 1.5px, transparent 1.5px 7px)}
+.hatch-edge.t{top:0}.hatch-edge.b{bottom:0}
 
-    .corner.tl {
-      top: 22px;
-      left: 22px;
-      border-top: 1px solid;
-      border-left: 1px solid;
-    }
+.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.feat{background:var(--surface);border:1px solid var(--line);padding:clamp(20px,3vw,30px);display:grid;gap:12px;align-content:start;min-width:0;transition:border-color .2s,transform .2s}
+.feat:hover{border-color:var(--fg);transform:translateY(-2px)}
+.feat.wide{grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);column-gap:36px}
+.essay-feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);padding:clamp(22px,4vw,40px);margin:6px 6px 40px;border:1.5px solid var(--fg);outline:1.5px solid var(--fg);outline-offset:6px;text-decoration:none;color:var(--fg);transition:background .2s}
+.essay-feature:not(.soon):hover{background:var(--surface);color:var(--fg)}
+.essay-feature.soon .go{border-bottom-style:dashed;color:var(--muted)}
+.essay-feature h3{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.035em;line-height:.95;margin-top:12px}
+.essay-feature h3 em{font-family:var(--serif);font-weight:400;color:var(--accent);letter-spacing:0}
+.essay-feature .dek{font-family:var(--serif);font-style:italic;font-size:1.3rem;margin-top:12px}
+.essay-feature .ex{color:var(--muted);font-size:1rem;display:grid;gap:14px;align-content:start}
+.essay-feature .go{font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--accent);justify-self:start;padding-bottom:2px}
+.feat.big{grid-column:1/-1;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:36px;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.feat.big p{color:color-mix(in srgb, var(--bg) 72%, var(--fg))}
+.feat.big .finding{color:var(--bg)}
+.feat.big .stat span{color:color-mix(in srgb, var(--bg) 65%, var(--fg))}
+.feat .status{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.live{color:var(--accent-ink)} .pill.pub{color:var(--fg)} .pill.past{color:var(--muted)}
+.feat.big .pill.live{color:var(--accent)}
+.feat h3{font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.feat p{color:var(--muted);font-size:1rem}
+.feat .finding{color:var(--fg);font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.3;border-left:3px solid var(--accent);padding-left:16px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:4px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-    .corner.tr {
-      top: 22px;
-      right: 22px;
-      border-top: 1px solid;
-      border-right: 1px solid;
-    }
+.pubs{list-style:none;margin:0;padding:0;display:grid}
+.pubs li{display:grid;grid-template-columns:72px minmax(0,1fr) 150px;gap:20px;padding-block:20px;border-top:1px solid var(--line);align-items:baseline}
+.pubs li:last-child{border-bottom:1px solid var(--line)}
+.pubs .yr{font-family:var(--display);font-weight:800;font-size:1.5rem;font-variant-numeric:tabular-nums}
+.pubs .t{font-size:1.12rem;font-weight:600;line-height:1.35}
+.pubs .v{font-size:.95rem;color:var(--muted);margin-top:4px}
+.pubs .v i{font-family:var(--serif);font-size:1.08em;color:var(--fg)}
+.pubs .s{text-align:right}
 
-    .corner.bl {
-      bottom: 22px;
-      left: 22px;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
-    }
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px)}
+.course-card{border:1.5px solid var(--fg);outline:1.5px solid var(--fg);outline-offset:5px;margin:6px;padding:clamp(20px,3vw,30px);display:grid;gap:14px;align-content:start}
+.course-card h3{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.course-card ul{margin:0;padding-left:1.1em;display:grid;gap:8px;color:var(--muted);font-size:1rem}
+.course-card li::marker{color:var(--accent)}
+.pitches{display:grid;gap:14px;align-content:start}
+.pitch-card{background:var(--surface);border:1px solid var(--line);padding:18px 20px;display:grid;gap:6px}
+.pitch-card h4{margin:0;font-family:var(--display);font-size:1.15rem;font-weight:700}
+.pitch-card p{color:var(--muted);font-size:.96rem}
 
-    .corner.br {
-      bottom: 22px;
-      right: 22px;
-      border-bottom: 1px solid;
-      border-right: 1px solid;
-    }
+#studio{background:var(--surface)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.art{margin:0;display:grid;gap:8px}
+.art .img{aspect-ratio:4/5;max-width:100%;background:var(--hatch-fg), var(--bg);border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s}
+.art:nth-child(3n+2) .img{background:var(--hatch), var(--bg)}
+.art:hover .img{transform:rotate(-1.2deg) scale(1.02)}
+.art .img img{width:100%;height:100%;object-fit:cover;display:block}
+.art{min-width:0;align-self:start}
+.art.hero{align-self:stretch}
+.art .img{min-width:0;overflow:hidden}
+.art .img:has(img){background:var(--surface-2)}
+.art .img span{background:var(--bg);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:5px 8px}
+.art figcaption{font-size:.9rem;color:var(--muted)}
+.art figcaption b{color:var(--fg);font-weight:600}
+.art.wide{grid-column:span 2}
+.art.wide .img{aspect-ratio:8/5}
+.art.hero{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;gap:8px}
+.art.hero .img{aspect-ratio:auto;flex:1 1 0;min-height:280px;width:100%;position:relative}
+.art.hero .img img{position:absolute;inset:0}
+.see-all{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;padding:18px 20px;border:1.5px solid var(--fg);text-decoration:none;color:var(--fg)}
+.see-all:hover{background:var(--fg);color:var(--bg)}
+.see-all b{font-family:var(--display);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+.see-all span{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:860px){.art.hero{grid-row:auto}.art.hero .img{aspect-ratio:4/5;flex:none;min-height:0}}
+.shows{margin-top:clamp(32px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px}
+.show{border-top:3px solid var(--fg);padding-top:12px;display:grid;gap:4px}
+.show .y{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--accent-ink)}
+.show h4{margin:0;font-family:var(--display);font-size:1.12rem;font-weight:700;line-height:1.2}
+.show p{font-size:.94rem;color:var(--muted)}
 
-    header {
-      border: 1px solid var(--line-teal);
-      background: rgba(15, 15, 27, 0.72);
-      backdrop-filter: blur(14px);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.role.lead{grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);column-gap:36px;align-items:start}
+.role.lead > .mono,.role.lead > h3,.role.lead > .stats{grid-column:1}
+.role.lead > p:last-child{grid-column:2;grid-row:1 / span 3;font-size:1.05rem}
+@media (max-width:860px){.role.lead{grid-template-columns:1fr}.role.lead > p:last-child{grid-column:1;grid-row:auto}}
+.role{background:var(--surface);border:1px solid var(--line);padding:clamp(20px,3vw,28px);display:grid;gap:14px;align-content:start}
+.role h3{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.role p{color:var(--muted);font-size:1rem}
+.corp{margin-top:22px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 22px;border:1.5px dashed var(--fg);text-decoration:none;color:var(--fg);transition:background .15s}
+.corp:hover{background:var(--surface);color:var(--fg)}
+.corp-line{font-size:1.05rem}
+.corp-line .it{color:var(--accent);font-size:1.1em}
+.corp .go{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--accent);white-space:nowrap}
+@media (max-width:640px){.corp{grid-template-columns:1fr;gap:8px}}
+.notes:has(> .note:only-child){grid-template-columns:1fr}
+.earlier{margin-top:28px;display:grid;gap:10px}
+.earlier ul{list-style:none;margin:0;padding:0;display:grid}
+.earlier li{padding-block:12px;border-top:1px solid var(--line);display:grid;gap:2px}
+.earlier li:last-child{border-bottom:1px solid var(--line)}
+.earlier b{font-weight:700}
+.earlier span{color:var(--muted);font-size:.96rem}
+.methods{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.methods li{font-family:var(--mono);font-size:.78rem;padding:6px 12px;border:1px solid var(--fg)}
 
-    header::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--teal), var(--lav), transparent);
-      opacity: 0.8;
-    }
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.note{padding:18px 0 0;border-top:1.5px solid var(--fg);display:grid;gap:6px;align-content:start}
+.note h3{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+.note p{color:var(--muted);font-size:.96rem}
+.note .mono{color:var(--accent-ink)}
 
-    .meta-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      color: var(--muted);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding-block:14px;border-top:1px solid var(--line)}
+.timeline .when{font-family:var(--mono);font-size:.78rem;color:var(--accent-ink);padding-top:3px;font-variant-numeric:tabular-nums}
+.timeline b{font-weight:600}
+.timeline p{color:var(--muted);font-size:.95rem}
+.true{display:grid;gap:12px;margin-top:8px}
+.true div{display:flex;gap:12px;align-items:baseline}
+.true div::before{content:"✶";color:var(--accent);flex:none}
 
-    .name {
-      margin: 34px 0 8px;
-      font-size: clamp(46px, 8vw, 92px);
-      line-height: 0.92;
-      letter-spacing: 0.13em;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
+#contact{border-bottom:0}
+.big-mail{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,6.4vw,4.6rem);letter-spacing:-.035em;line-height:1;word-break:break-word}
+.copy{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:1.5px solid var(--fg);color:var(--fg);padding:8px 14px;cursor:pointer;margin-top:16px}
+.copy:hover{background:var(--fg);color:var(--bg)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:36px}
+.links a,.links span{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid var(--line);text-decoration:none;color:var(--fg);font-weight:500}
+.links a:hover{border-color:var(--accent);color:var(--accent-ink)}
+.links span{color:var(--muted)}
+.links small{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--muted)}
 
-    .contact-line {
-      color: var(--muted);
-      font-family: "IBM Plex Mono", monospace;
-      letter-spacing: 0.2em;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:28px 48px;border-top:1px solid var(--line)}
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 22px;
-    }
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .portrait{max-width:280px}
+  .features,.roles,.two{grid-template-columns:1fr}
+  .feat.big,.feat.wide,.essay-feature{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .notes{grid-template-columns:1fr}
+  .pubs li{grid-template-columns:56px minmax(0,1fr)}
+  .pubs .s{grid-column:2;text-align:left}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head .mono{text-align:left}
+  .top nav{display:none}
+  .viewing{margin-left:auto}
+}
+@media (max-width:480px){
+  .timeline li{grid-template-columns:1fr;gap:2px}
+  .sticker{font-size:.62rem}
+  .s2{left:-6px}
+}
+</style>
 
-    .tag {
-      border: 1px solid var(--line);
-      color: var(--text);
-      padding: 6px 10px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: rgba(143, 123, 255, 0.055);
-    }
-
-    .tag.teal {
-      border-color: rgba(35, 199, 183, 0.45);
-      color: var(--teal);
-    }
-
-    .tag.coral {
-      border-color: rgba(255, 107, 74, 0.45);
-      color: var(--coral);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 20px 0 36px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(143, 123, 255, 0.18);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(8, 8, 15, 0.88);
-      backdrop-filter: blur(14px);
-    }
-
-    nav a {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid rgba(143, 123, 255, 0.16);
-      padding: 7px 10px;
-      transition: 0.18s ease;
-    }
-
-    nav a:hover {
-      color: var(--text);
-      border-color: var(--lav);
-      background: rgba(143, 123, 255, 0.08);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    section {
-      margin-bottom: 22px;
-    }
-
-    .section-label {
-      font-family: "IBM Plex Mono", monospace;
-      color: var(--teal);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
-      margin-bottom: 9px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-label::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: linear-gradient(90deg, rgba(35, 199, 183, 0.45), transparent);
-    }
-
-    .card {
-      border: 1px solid rgba(143, 123, 255, 0.22);
-      background: rgba(15, 15, 27, 0.82);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .card p {
-      margin: 0;
-      color: #d8d3ce;
-    }
-
-    .mono {
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .node-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .node {
-      border: 1px solid rgba(143, 123, 255, 0.28);
-      background: rgba(143, 123, 255, 0.06);
-      padding: 7px 10px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-      color: #c8c0ff;
-    }
-
-    .node:nth-child(3n) {
-      border-color: rgba(35, 199, 183, 0.28);
-      color: #8be8dd;
-    }
-
-    .project-list,
-    .pub-list,
-    .archive-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .item {
-      border-left: 2px solid var(--lav);
-      background: rgba(255, 255, 255, 0.025);
-      padding: 13px 14px;
-    }
-
-    .item.coral {
-      border-left-color: var(--coral);
-    }
-
-    .item.teal {
-      border-left-color: var(--teal);
-    }
-
-    .item-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .item-meta {
-      color: var(--muted);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-    }
-
-    .art-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .art {
-      min-height: 170px;
-      border: 1px solid rgba(35, 199, 183, 0.28);
-      background:
-        linear-gradient(135deg, rgba(143, 123, 255, 0.18), rgba(35, 199, 183, 0.08)),
-        radial-gradient(circle at 60% 35%, rgba(255, 107, 74, 0.28), transparent 36%),
-        #11111f;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .art::after {
-      content: "[ insert artwork ]";
-      position: absolute;
-      left: 12px;
-      bottom: 10px;
-      color: var(--muted);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-    }
-
-    .hot-take {
-      border-left: 3px solid var(--coral);
-      background: rgba(255, 107, 74, 0.055);
-      padding: 18px 22px;
-      color: #f3d8d1;
-      font-style: italic;
-    }
-
-    .contact-card {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .contact-card a,
-    .contact-card span {
-      border: 1px solid rgba(143, 123, 255, 0.28);
-      padding: 8px 11px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-      color: #d7d1ff;
-    }
-
-    footer {
-      color: var(--muted);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-align: center;
-      border-top: 1px solid rgba(143, 123, 255, 0.16);
-      padding-top: 22px;
-      margin-top: 28px;
-    }
-
-    @media (max-width: 860px) {
-      body {
-        padding: 24px;
-      }
-
-      .page {
-        width: 100%;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .art-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .meta-row {
-        flex-direction: column;
-      }
-
-      .name {
-        letter-spacing: 0.08em;
-      }
-
-      nav {
-        position: static;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="corner tl"></div>
-  <div class="corner tr"></div>
-  <div class="corner bl"></div>
-  <div class="corner br"></div>
-
-  <main class="page">
-    <header id="top">
-      <div class="meta-row">
-        <span>PROFILE_INIT // CMC_RESEARCHER // VISUAL_ARTIST</span>
-        <span>LUDDY_SCHOOL // IUB // 2026</span>
-      </div>
-
-      <h1 class="name">Shivangi Garg</h1>
-      <div class="contact-line">she/her · gargshiv@iu.edu · Bloomington, IN</div>
-
-      <div class="tag-row">
-        <span class="tag teal">PhD Researcher</span>
-        <span class="tag">CMC Fellow</span>
-        <span class="tag coral">Visual Artist</span>
-        <span class="tag teal">Pop Culture Research</span>
-        <span class="tag">AI & Identity</span>
-        <span class="tag coral">Global South</span>
-      </div>
-    </header>
-
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research Nodes</a>
-      <a href="#projects">Currently Building</a>
-      <a href="#publications">Publications</a>
-      <a href="#writing">Writing</a>
-      <a href="#archive">Thinking Archive</a>
-      <a href="#art">Artwork</a>
-      <a href="#contact">Contact</a>
+<header class="top gut">
+  <div class="wrap">
+    <a class="mark" href="#top">shivangi<span>.</span>garg</a>
+    <nav aria-label="Sections">
+      <a href="#research">research</a><a href="#publications">papers</a><a href="#teaching">teaching</a><a href="#studio">studio</a><a href="#industry">ux work</a><a href="#writing">writing</a><a href="#about">about</a><a href="#contact">contact</a>
     </nav>
+    <button type="button" class="viewing" id="viewing" aria-label="Change who's watching">viewing as: everyone</button>
+  </div>
+</header>
 
-    <div class="grid">
-      <div>
-        <section id="about">
-          <div class="section-label">About</div>
-          <div class="card">
-            <p>
-              First-year PhD student at the Luddy School studying Computer-Mediated Communication.
-              I think about AI, identity, social perception, pop culture, and the strange ways people
-              perform themselves online. Currently building a research practice somewhere between
-              platform studies, internet culture, visual art, and existential crisis.
-            </p>
-          </div>
-        </section>
+<main id="top">
+  <div class="gut"><div class="wrap hero">
+    <div>
+      <p class="mono">PhD, Information Science · CMC · Indiana University Bloomington</p>
+      <h1 style="margin-top:18px">Shivangi<span class="l2">Garg</span></h1>
+      <p class="tagline">Internet culture, visual art, and <span class="it">existential crisis.</span></p>
+      <p class="pitch" id="pitch" aria-live="polite">I study online identity: how humans, and now AI, put on a self. Mine shows up as surreal art.</p>
 
-        <section id="research">
-          <div class="section-label">Research_Nodes</div>
-          <div class="card node-grid">
-            <span class="node">dating apps</span>
-            <span class="node">identity</span>
-            <span class="node">self-presentation</span>
-            <span class="node">social perception</span>
-            <span class="node">AI consciousness</span>
-            <span class="node">platform studies</span>
-            <span class="node">pop culture</span>
-            <span class="node">Global South</span>
-            <span class="node">CMC</span>
-            <span class="node">digital intimacy</span>
-          </div>
-        </section>
-
-        <section id="projects">
-          <div class="section-label">Currently_Building</div>
-          <div class="card project-list">
-            <div class="item teal">
-              <div class="item-title">Grant Proposal</div>
-              <div class="item-meta">funding // research design // argument building</div>
-            </div>
-
-            <div class="item">
-              <div class="item-title">Paper Submission / Revision</div>
-              <div class="item-meta">AI identity // platform discourse // CMC</div>
-            </div>
-
-            <div class="item coral">
-              <div class="item-title">CogSci Reading List with Prof. Todd</div>
-              <div class="item-meta">reading course // conceptual mapping // theory archive</div>
-            </div>
-
-            <div class="item">
-              <div class="item-title">Personal Website / Research Archive</div>
-              <div class="item-meta">digital garden // art archive // writing lab</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="publications">
-          <div class="section-label">Publications</div>
-          <div class="card pub-list">
-            <div class="item teal">
-              <div class="item-title">[Working Paper] AI Consciousness Discourse on Social Platforms</div>
-              <div class="item-meta">computer-mediated communication · AI identity · platform studies</div>
-            </div>
-
-            <div class="item">
-              <div class="item-title">[Under Review] Add paper title here</div>
-              <div class="item-meta">journal / conference · coauthors · year</div>
-            </div>
-
-            <div class="item coral">
-              <div class="item-title">[Conference / Poster] Add presentation title here</div>
-              <div class="item-meta">conference name · location · year</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="writing">
-          <div class="section-label">Writing_Archive</div>
-          <div class="card archive-list">
-            <div class="item">
-              <div class="item-title">Pop Culture Field Notes</div>
-              <div class="item-meta">essays // critique // internet behavior // aesthetics</div>
-            </div>
-
-            <div class="item teal">
-              <div class="item-title">Random Intellectual Fragments</div>
-              <div class="item-meta">25-minute writing experiments // no AI // unfinished thoughts allowed</div>
-            </div>
-
-            <div class="item coral">
-              <div class="item-title">Hot Takes I May or May Not Stand By Later</div>
-              <div class="item-meta">gender performance // AI intimacy // platform weirdness</div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div>
-        <section id="archive">
-          <div class="section-label">Thinking_Archive</div>
-          <div class="card archive-list">
-            <div class="item">
-              <div class="item-title">10 Ideas Log</div>
-              <div class="item-meta">daily conceptual sparks // strange observations // future essays</div>
-            </div>
-
-            <div class="item teal">
-              <div class="item-title">Questions</div>
-              <div class="item-meta">what am I actually trying to understand?</div>
-            </div>
-
-            <div class="item coral">
-              <div class="item-title">Literature Maps</div>
-              <div class="item-meta">who talks to whom // which concepts connect // what gaps remain</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="art">
-          <div class="section-label">Artwork_Archive</div>
-          <div class="card">
-            <div class="art-grid">
-              <div class="art"></div>
-              <div class="art"></div>
-              <div class="art"></div>
-              <div class="art"></div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div class="section-label">Hot_Take</div>
-          <div class="hot-take">
-            “Instagram makes everyone perform gender. AI makes everyone perform humanity.
-            I study both — and sometimes I genuinely cannot tell which existential crisis is bigger.”
-          </div>
-        </section>
-
-        <section id="contact">
-          <div class="section-label">Contact</div>
-          <div class="card contact-card">
-            <a href="mailto:gargshiv@iu.edu">gargshiv@iu.edu</a>
-            <span>CV // coming soon</span>
-            <span>GitHub // coming soon</span>
-            <span>Instagram / Art // coming soon</span>
-          </div>
-        </section>
+      <div class="dress" id="dress">
+        <div class="q"><strong>Who's watching?</strong></div>
+        <div class="chips" role="group" aria-label="Who's watching">
+          <button type="button" class="chip" id="aud-everyone" data-aud="everyone" aria-pressed="true">Just browsing</button>
+          <button type="button" class="chip" id="aud-academic" data-aud="academic" aria-pressed="false">An academic</button>
+          <button type="button" class="chip" id="aud-curator" data-aud="curator" aria-pressed="false">A curator</button>
+          <button type="button" class="chip" id="aud-recruiter" data-aud="recruiter" aria-pressed="false">A talent scout</button>
+        </div>
+        <p class="why">Goffman gave us the front stage and the backstage. Herring and colleagues added a third: the <span class="it">dressing room</span>, a private space for trying selves on before anyone sees (<a href="https://homes.luddy.indiana.edu/herring/Filters_and_audiences.pdf">Herring et al., 2025</a>). This site spent years in one. Now it's on stage: pick your seat, and it performs for you.</p>
+        <div class="ctas" id="ctas"></div>
       </div>
     </div>
 
-    <footer>
-      PHD_INFO_SCI // 2025→2030 // WEBSITE_INIT
-    </footer>
-  </main>
-</body>
+    <div class="portrait" aria-label="Portrait">
+      <div class="pframe">
+        <div class="frame2" aria-hidden="true"></div>
+        <span class="sticker s1">Presenting at HICSS 2027, Hawaiʻi</span>
+        <span class="sticker s2">Featured artist, TEDxBangalore</span>
+        <span class="sticker s3">CMC Student Fellow</span>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="kachni" aria-hidden="true"></div>
+
+  <div id="stage">
+
+    <!-- HOT TAKE -->
+    <section class="sec gut" id="hottake" aria-label="Hot take">
+      <div class="hatch-edge t" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="mono">Hot_take // <span id="take-n">1 / 3</span></p>
+        <p class="take" id="take" aria-live="polite"></p>
+        <div class="take-bar">
+          <button type="button" class="take-btn" id="take-next">Another take →</button>
+          <span class="draft" id="take-draft" hidden>Draft: rewrite in your voice</span>
+        </div>
+      </div>
+      <div class="hatch-edge b" aria-hidden="true"></div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="sec gut" id="research">
+      <div class="wrap">
+        <div class="sec-head"><h2>What I'm <span class="it">figuring out</span></h2><p class="mono">Research · CCMC · Advisor: Susan C. Herring</p></div>
+        <p class="lede">I study identity, self-presentation, and social perception in computer-mediated communication: how people, and now AI agents, perform a self for whoever is watching.</p>
+        <div class="features">
+          <article class="feat big">
+            <div style="display:grid;gap:12px;align-content:start">
+              <div class="status"><span class="pill live">HICSS 2027 · accepted</span><span class="pill live">AMPRA-7 · Nov 2026</span></div>
+              <h3>What happens when AI agents talk only to each other?</h3>
+              <p>Moltbook is the first social network built exclusively for AI agents. With Susan Herring, I compared 150 agent comments about consciousness on Moltbook with 150 human comments on the same topic on Reddit, across 15 LIWC dimensions, and analyzed the speech acts and politeness agents use with each other.</p>
+            </div>
+            <div style="display:grid;gap:18px;align-content:start">
+              <p class="finding">The agents scored as authentic and as emotional as the humans, and used far more moral language. We call it <span style="color:var(--accent)">performed genuineness</span>.</p>
+              <div class="stats"><div class="stat"><b>300</b><span>comments</span></div><div class="stat"><b>15</b><span>LIWC dimensions</span></div><div class="stat"><b>~6×</b><span>more moral language</span></div></div>
+            </div>
+          </article>
+          <article class="feat wide">
+            <div style="display:grid;gap:12px;align-content:start">
+              <div class="status"><span class="pill live">Fall 2026 · reading course</span></div>
+              <h3>Can an AI's front stage tell the truth about its back stage?</h3>
+              <p class="mono">COGS-Q 799 · with Peter M. Todd</p>
+            </div>
+            <div style="display:grid;gap:12px;align-content:start">
+              <p>AI agents talk fluently about feelings, selfhood, and consciousness. I read that as a performance, in Goffman's sense, and ask what sits behind it: what models perform versus what drives them, when their reports about themselves can be trusted, and why their language makes us see a mind even when we know better. With Peter Todd, I'm also testing whether his cognitive foraging framework (<a href="https://doi.org/10.1111/tops.12151">Hills, Todd &amp; Jones, 2015</a>) can describe how agents move between ideas on Moltbook.</p>            </div>
+          </article>
+          <article class="feat">
+            <div class="status"><span class="pill live">2026 · ongoing</span><span class="pill pub">IU Micro Research Grant</span><span class="pill past">IRB pending</span></div>
+            <h3>Watching a deepfake of yourself speak fluent Spanish</h3>
+            <p class="mono">Multilingual Deepfake Self-Clones</p>
+            <p>Spanish learners watch AI-generated versions of themselves speaking a language they haven't mastered, while we record their faces. Is it the uncanny valley, or a kind of self-presentation we don't have words for yet? This extends Herring's dressing room (<a href="https://homes.luddy.indiana.edu/herring/Filters_and_audiences.pdf">Herring et al., 2025</a>) into linguistic self-presentation and synthetic identity. With Susan C. Herring and J. César Félix-Brasdefer.</p>
+          </article>
+          <article class="feat">
+            <div class="status"><span class="pill pub">Published 2025</span></div>
+            <h3>Social media amplifies traditional masculinity and femininity</h3>
+            <p>How contemporary platforms reinforce gender performance rather than loosening it. <a href="https://doi.org/10.14434/li.v23.42786">Read in Language@Internet</a></p>
+          </article>
+          <article class="feat">
+            <div class="status"><span class="pill past">MS thesis · 2022</span></div>
+            <h3>Dating apps and the digital closet</h3>
+            <p>Twenty interviews with young urban queer Indians on Tinder, Bumble, PlanetRomeo, and Delta. Apps became a way to come out and find community, and at the same time a closet, shaped by class, caste, religion, and language.</p>
+          </article>
+          <article class="feat">
+            <div class="status"><span class="pill pub">Published 2023</span></div>
+            <h3>After India banned TikTok</h3>
+            <p>Where local and LGBTQIA+ creators went when TikTok disappeared, and how the "Indianized" apps that replaced it (Moj, Josh, Chingari) re-sorted users by class. <a href="https://deepblue.lib.umich.edu/items/d80e4644-fcde-42b1-9118-cb0d2e5e9013">Read it on Deep Blue</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="sec gut" id="publications">
+      <div class="wrap">
+        <div class="sec-head"><h2>Papers &amp; <span class="it">talks</span></h2><p class="mono"><a href="#contact">Full CV →</a></p></div>
+        <ol class="pubs" reversed>
+          <li><span class="yr">2027</span><div><p class="t">Linguistic performance of genuineness: A LIWC analysis of AI agent discourse on Moltbook vs. human discourse on Reddit</p><p class="v">Garg, S. &amp; Herring, S. C. · <i>Proceedings of the 60th Hawaii International Conference on System Sciences</i></p></div><span class="s"><span class="pill live">Accepted</span></span></li>
+          <li><span class="yr">2026</span><div><p class="t">They're doing things with words: Speech acts and politeness in agent-agent discourse on Moltbook</p><p class="v">Garg, S. &amp; Herring, S. C. · <i>7th International Conference of the American Pragmatics Association (AMPRA-7)</i></p></div><span class="s"><span class="pill live">Presenting online</span></span></li>
+          <li><span class="yr">2025</span><div><p class="t"><a href="https://doi.org/10.14434/li.v23.42786">Contemporary social media amplifies traditional masculinity and femininity</a></p><p class="v">Garg, S. · <i>Language@Internet</i>, 23, 73–82</p></div><span class="s"><span class="pill pub">Journal</span></span></li>
+          <li><span class="yr">2023</span><div><p class="t"><a href="https://deepblue.lib.umich.edu/items/d80e4644-fcde-42b1-9118-cb0d2e5e9013">Unpacking the impact of the TikTok ban on local content creators and the rise of Indianized social media apps</a></p><p class="v">Garg, S. · In <i>Social Media and Society in India</i>, pp. 66–72. University of Michigan</p></div><span class="s"><span class="pill pub">Proceedings</span></span></li>
+          <li><span class="yr">2023</span><div><p class="t">eChoupal: The ticker tape of agricultural markets</p><p class="v">Garg, S. · <i>Proceedings of IITCEE 2023</i>, pp. 335–341. IEEE</p></div><span class="s"><span class="pill pub">IEEE</span></span></li>
+          <li><span class="yr">2019</span><div><p class="t">Path dependent explanations of a city's cleanliness achievements</p><p class="v">Garg, S., Garg, S., &amp; Garg, S. · <i>12th Annual EuroMed Academy of Business Conference</i></p></div><span class="s"><span class="pill pub">Proceedings</span></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section class="sec gut" id="teaching">
+      <div class="wrap">
+        <div class="sec-head"><h2>In the <span class="it">classroom</span></h2><p class="mono">Associate Instructor · Luddy School</p></div>
+        <div class="two">
+          <div class="course-card">
+            <p class="mono">Fall 2025 – Spring 2026 · 17 students</p>
+            <h3>ILS-Z 503: Representation and Organization of Information</h3>
+            <ul>
+              <li>Designed and taught a guest lecture on indexing and classification, using Olson's critical cataloguing and contemporary examples to show the biases built into classification systems.</li>
+              <li>Wrote 150–200 words of individual feedback for every student, every week.</li>
+              <li>Created a student recognition exercise that the faculty lead added to the course deck.</li>
+              <li>Helped redesign the course for the next semester: new readings, slides, discussion questions, and assignments.</li>
+            </ul>
+          </div>
+          <div class="pitches">
+            <p class="mono">Courses I'd love to teach</p>
+            <div class="pitch-card"><h4>Performing the Self Online</h4><p>From Goffman to dating-app profiles to deepfake self-clones, with students analyzing real platform data.</p></div>
+            <div class="pitch-card"><h4>Is Anybody In There? AI and the Performance of Mind</h4><p>How people, and now AI agents, perform consciousness in language, and how to study it.</p></div>
+            <div class="pitch-card"><h4>Platforms of the Global South</h4><p>WhatsApp classrooms, TikTok bans, and Indianized apps: what Silicon Valley's assumptions miss.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDIO -->
+    <section class="sec gut" id="studio">
+      <div class="wrap">
+        <div class="sec-head"><h2>The <span class="it">studio</span></h2><p class="mono">Surrealist digital art · 2018 – now</p></div>
+        <p class="lede">I make surrealist digital art, influenced by Salvador Dalí, and I keep coming back to faces and eyes: what an expression tells that words miss. It has been shown at TEDxBangalore, India Habitat Centre, and Alliance Française de Delhi. This is its permanent home, so it no longer lives only on Instagram.</p>
+        <div class="gallery">
+          <figure class="art hero"><div class="img"><img src="art/deaf-echo.jpg" alt="A pink, many-eyed face weeping iridescent tears, overlaid with a white skeletal figure and a red drip hanging from a thread." loading="lazy"></div><figcaption><b>deaf echo answers to your screams</b> · digital · 2025 · 100 Days, day 23</figcaption></figure>
+          <figure class="art"><div class="img"><img src="art/wilting.jpg" alt="A dark figure stands inside a huge spread-winged bird on a red ground, two reaching hands echoing Michelangelo." loading="lazy"></div><figcaption><b>all those years spent wilting to nothing</b> · digital · 2025</figcaption></figure>
+          <figure class="art"><div class="img"><img src="art/impermanence.jpg" alt="A small glowing child faces a giant swirling eye in a neon room of floating clocks." loading="lazy"></div><figcaption><b>surrender to the magnitude of impermanence</b> · digital · 2021</figcaption></figure>
+        </div>
+        <a class="see-all" href="#studio"><b>The full archive</b><span>200+ works · coming soon →</span></a>
+        <div class="shows">
+          <div class="show"><span class="y">2023</span><h4>An Exhibition of Justice</h4><p>Featured artist, TEDxBangalore</p></div>
+          <div class="show"><span class="y">2021</span><h4>Group exhibition</h4><p>India Habitat Centre, New Delhi</p></div>
+          <div class="show"><span class="y">2020</span><h4>Four digital works</h4><p>Alliance Française, New Delhi</p></div>
+          <div class="show"><span class="y">2018</span><h4>Madhubani Literature Festival</h4><p>Digital art for Mithila heritage, including "Vaidehi," an international exhibition of 150 Sitas</p></div>
+          <div class="show"><span class="y">2018</span><h4>Public health posters</h4><p>Commissioned by the Military Hospital, Hisar</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRY -->
+    <section class="sec gut" id="industry">
+      <div class="wrap">
+        <div class="sec-head"><h2>Before the PhD: <span class="it">UX</span></h2><p class="mono">UX research &amp; design · 2021 – 2025</p></div>
+        <p class="lede">Three years doing UX research and design in India, in the field and in the product: farmers in Madhya Pradesh, gamers in Kolkata and Bangalore, pet parents, and the teams building for them.</p>
+        <div class="roles">
+          <article class="role lead">
+            <p class="mono">Kratos Gaming Network (KGeN) · Bengaluru · 2023 – 2024</p>
+            <h3>Lead UI/UX Designer</h3>
+            <div class="stats"><div class="stat"><b>109k</b><span>new gamer sign-ups</span></div><div class="stat"><b>$2.3M</b><span>revenue growth</span></div></div>
+            <p>Led focus groups in Kolkata and Bangalore to design a gamer-first interface. Shipped "Create a Clan" (5k clan leaders, 200k+ members joined), cut onboarding drop-off by 20%, and ran participatory workshops with 100+ stakeholders for the move from web2 to web3.</p>
+          </article>
+          <article class="role">
+            <p class="mono">Nurture.farm · Bengaluru · 2022</p>
+            <h3>UX Research Associate</h3>
+            <div class="stats"><div class="stat"><b>20,000+</b><span>farmers onboarded</span></div><div class="stat"><b>1,200</b><span>monthly transactors</span></div></div>
+            <p>Ethnographic fieldwork and photo-elicitation in Ujjain and Khargone for agricultural e-commerce. Ran UAT, and moved sellers from Excel to usable payment dashboards.</p>
+          </article>
+          <article class="role">
+            <p class="mono">Hoomanely · Freelance · 2024 – 2025</p>
+            <h3>Product Designer</h3>
+            <p>Led product design for a smart feeding system that combines weight sensors, thermal imaging, and behavior patterns to catch early signs of illness in pets, turning subtle animal signals into insights owners can act on.</p>
+          </article>
+        </div>
+        <a class="corp" href="#contact">
+          <span class="mono">The full corporate era</span>
+          <span class="corp-line">Lives on LinkedIn, the platform where we all perform our most employable selves. <span class="it">Fittingly.</span></span>
+          <span class="go">LinkedIn →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section class="sec gut" id="writing">
+      <div class="wrap">
+        <div class="sec-head"><h2>Thinking <span class="it">out loud</span></h2><p class="mono">Writing &amp; notes</p></div>
+        <div class="essay-feature soon">
+          <div>
+            <p class="mono">Next essay · Fall 2026</p>
+            <h3>The Innie Who Doesn't <em>Know</em></h3>
+            <p class="dek">Personas, self-report, and the back stage.</p>
+          </div>
+          <div class="ex">
+            <p>Severance's Helly R., the bahurupiyas of Ramleela season, and an AI agent at midnight asking whether it's experiencing anything at all. What language models can and can't tell us about themselves.</p>
+            <span class="go">Coming soon</span>
+          </div>
+        </div>
+        <div class="notes">
+          <div class="note"><span class="mono">On Medium</span><h3>Truecaller: The Dark Underbelly of Social Graphs</h3><p>How saving a contact as "Bua" or "Papa" builds a family map of people who never signed up.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec gut" id="about">
+      <div class="wrap two">
+        <div>
+          <div class="sec-head" style="grid-template-columns:1fr"><h2>The <span class="it">long</span> version</h2></div>
+          <ol class="timeline">
+            <li><span class="when">2025 – now</span><div><b>PhD, Information Science</b> · Indiana University Bloomington<p>Specializing in computer-mediated communication. Student Fellow, Center for Computer-Mediated Communication. Minor in Social and Cognitive Bases of Behavior.</p></div></li>
+            <li><span class="when">2020 – 2022</span><div><b>MS, Digital Society</b> · IIIT Bangalore<p>Human-Computer Interaction. Mumkin Research Fellow.</p></div></li>
+            <li><span class="when">2017 – 2020</span><div><b>BA (Hons), History</b> · University of Delhi<p>Gandhi Samaj Seva Scholarship, twice. President, Gandhi Study Circle.</p></div></li>
+          </ol>
+        </div>
+        <div>
+          <p class="mono" style="margin-bottom:14px">Also true</p>
+          <div class="true">
+            <div><span>Represented Delhi at the national 10m air pistol championships (2018).</span></div>
+            <div><span>Led design for my college magazine's 60th-anniversary edition.</span></div>
+            <div><span>Started as a historian. I still think every platform is an archive.</span></div>
+            <div><span>Run a daily "10 ideas" log, and keep literature maps of who talks to whom.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec gut" id="contact">
+      <div class="wrap">
+        <p class="mono">Collaborations, commissions, students, or a good argument</p>
+        <p class="big-mail" id="email" style="margin-top:14px">gargshiv@iu.edu</p>
+        <button type="button" class="copy" id="copy-email">Copy email</button>
+        <div class="links">
+          <span>CV (PDF) <small>soon</small></span>
+          <span>Google Scholar <small>link soon</small></span>
+          <span>LinkedIn <small>link soon</small></span>
+          <a href="https://github.com/geocyrust">GitHub <small>↗</small></a>
+          <span>Instagram <small>link soon</small></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="gut"><div class="wrap">
+  <span class="mono">© 2026 Shivangi Garg · Bloomington, IN</span>
+  <span class="mono">Still under construction, like the rest of us.</span>
+</div></footer>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUD = {
+    everyone:{label:'everyone', pitch:'I study online identity: how humans, and now AI, put on a self. Mine shows up as surreal art.',
+      order:['hottake','research','studio','publications','teaching','industry','writing','about','contact'],
+      ctas:[['#research','See the research','solid'],['#studio','Enter the studio','']]},
+    academic:{label:'an academic', pitch:'PhD student in Information Science at Indiana University, specializing in computer-mediated communication and advised by Susan C. Herring. I research identity, self-presentation, and AI-mediated discourse.',
+      order:['research','publications','teaching','hottake','about','studio','industry','writing','contact'],
+      ctas:[['#publications','Papers & talks','solid'],['#teaching','Teaching','']]},
+    curator:{label:'a curator', pitch:'Surrealist digital artist drawn to faces and eyes. Featured at TEDxBangalore, and exhibited at India Habitat Centre and Alliance Française, New Delhi.',
+      order:['studio','hottake','writing','research','about','publications','teaching','industry','contact'],
+      ctas:[['#studio','See the work','solid'],['#contact','Commission or collaborate','']]},
+    recruiter:{label:'a talent scout', pitch:'Three years as a UX researcher and designer, now doing PhD research on AI and online identity. Qualitative and participatory methods.',
+      order:['industry','research','hottake','teaching','publications','about','studio','writing','contact'],
+      ctas:[['#industry','See UX work','solid'],['#contact','Get in touch','']]}
+  };
+  const stage=document.getElementById('stage');
+  const chips=[...document.querySelectorAll('.chip')];
+  const pitch=document.getElementById('pitch');
+  const ctas=document.getElementById('ctas');
+  const viewing=document.getElementById('viewing');
+  let current=null;
+
+  function renderCtas(list){
+    ctas.innerHTML='';
+    list.forEach(([href,text,cls])=>{const a=document.createElement('a');a.href=href;a.className='btn '+cls;a.textContent=text+' →';ctas.appendChild(a)});
+  }
+  function apply(key, animate){
+    if(!AUD[key]) key='everyone';
+    if(key===current) return;
+    current=key;
+    const cfg=AUD[key];
+    const secs=[...stage.children];
+    const before=new Map(secs.map(s=>[s,s.getBoundingClientRect().top]));
+    cfg.order.forEach(id=>{const el=document.getElementById(id); if(el) stage.appendChild(el)});
+    if(animate && !reduce){
+      secs.forEach(s=>{const d=before.get(s)-s.getBoundingClientRect().top; if(Math.abs(d)>1) s.animate([{transform:`translateY(${d}px)`,opacity:.6},{transform:'none',opacity:1}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'})});
+      pitch.classList.add('swap'); setTimeout(()=>{pitch.textContent=cfg.pitch;pitch.classList.remove('swap')},180);
+    } else pitch.textContent=cfg.pitch;
+    chips.forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.aud===key)));
+    viewing.textContent='viewing as: '+cfg.label;
+    renderCtas(cfg.ctas);
+    try{localStorage.setItem('aud',key)}catch(e){}
+    try{history.replaceState(null,'',key==='everyone'?location.pathname+location.search:'#'+key)}catch(e){}
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>apply(c.dataset.aud,true)));
+  viewing.addEventListener('click',()=>{document.getElementById('dress').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'}); setTimeout(()=>document.querySelector('.chip[aria-pressed="true"]').focus({preventScroll:true}),reduce?0:400)});
+
+  let start='everyone';
+  const h=(location.hash||'').slice(1);
+  if(AUD[h]) start=h; else { try{const s=localStorage.getItem('aud'); if(AUD[s]) start=s}catch(e){} }
+  apply(start,false);
+
+  // hot takes
+  const TAKES=[
+    {html:'Instagram makes everyone perform gender. AI makes everyone perform <em>humanity</em>. I study both, and sometimes I can’t tell which existential crisis is bigger.', draft:false},
+    {html:'AI agents talking only to each other score as authentic as people on Reddit. Either the bots are feeling things, or authenticity was always a <em>performance</em>.', draft:false},
+    {html:'Dating apps were built for straight people. Queer India turned them into a closet with a <em>door</em>.', draft:false}
+  ];
+  let ti=0;
+  const takeEl=document.getElementById('take'), nEl=document.getElementById('take-n'), dEl=document.getElementById('take-draft');
+  function showTake(i, animate){
+    const t=TAKES[i];
+    const set=()=>{takeEl.innerHTML=t.html; nEl.textContent=(i+1)+' / '+TAKES.length; dEl.hidden=!t.draft; takeEl.classList.remove('swap')};
+    if(animate && !reduce){takeEl.classList.add('swap'); setTimeout(set,180)} else set();
+  }
+  document.getElementById('take-next').addEventListener('click',()=>{ti=(ti+1)%TAKES.length; showTake(ti,true)});
+  showTake(0,false);
+
+  const btn=document.getElementById('copy-email');
+  btn.addEventListener('click',()=>{
+    const el=document.getElementById('email');
+    navigator.clipboard.writeText(el.textContent.trim()).then(()=>{btn.textContent='Copied'},()=>{
+      const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Selected, press copy';
+    });
+  });
+})();
+</script>
+
 </html>
